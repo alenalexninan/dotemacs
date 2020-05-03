@@ -1,5 +1,5 @@
 (require-package 'ivy)
-(setq ivy-use-virtual-buffers t)
+(setq ivy-use-virtual-buffers nil)
 (setq ivy-virtual-abbreviate 'full)
 (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
 (setq ivy-height 16)
