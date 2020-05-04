@@ -43,9 +43,9 @@
 ;; Edit to configure
 ;; When windows
 (when dotemacs-python/system-check
-  (setq default-venv-name "flowassurance") ;; edit name of default virtual environment
-  (setq default-env-directory "c:/Anaconda/envs") ;; edit location for the default folder with virtual environment
-  (setq anaconda-directory "c:/Anaconda") ;; edit the location for anaconda installation directory if selecetd.
+  (setq default-venv-name "pipesim2017") ;; edit name of default virtual environment
+  (setq default-env-directory "c:/Users/alena/anaconda3/envs") ;; edit location for the default folder with virtual environment
+  (setq anaconda-directory "c:/Users/alena/anaconda3") ;; edit the location for anaconda installation directory if selecetd.
   )
 ;; When other Operating system-type
 (unless dotemacs-python/system-check
