@@ -1,4 +1,5 @@
 (after 'org
+  (setq org-directory (expand-file-name "~/Dropbox/Org"))
   (defgroup dotemacs-org nil
     "Configuration options for org-mode."
     :group 'dotemacs
@@ -39,13 +40,14 @@
   (setq org-use-fast-todo-selection t)
   (setq org-treat-S-cursor-todo-selection-as-state-change nil)
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n@)" "|" "DONE(d@)")
+        '((sequence "TODO(t)" "NEXT(n@)" "START(s@)" "|" "DONE(d@)")
           (sequence "WAITING(w@/!)" "|" "CANCELLED(c@/!)")))
 
   (setq org-todo-state-tags-triggers
         ' (("CANCELLED" ("CANCELLED" . t))
            ("WAITING" ("WAITING" . t))
            ("TODO" ("WAITING") ("CANCELLED"))
+           ("START" ("WAITING") ("CANCELLED"))
            ("NEXT" ("WAITING") ("CANCELLED"))
            ("DONE" ("WAITING") ("CANCELLED"))))
 
