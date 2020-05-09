@@ -43,9 +43,11 @@
       '((t (:background "#FFFFEA")))
       "Face used for the source block background.")
 
-    ;; (defface org-block-end-line
-    ;;   '((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
-    ;;   "Face used for the line delimiting the end of source blocks.")
+    (defface org-block-end-line
+      '((t (
+            ;;:overline "#A7A6AA"
+            :foreground "#008ED1" :background "#EAEAFF" :underline "#A7A6AA")))
+      "Face used for the line delimiting the end of source blocks.")
     
     ;; Helm selection color
     (after 'helm
