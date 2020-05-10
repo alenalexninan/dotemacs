@@ -106,4 +106,3 @@
             (write-file out-file)))))))
 
 (provide 'config-org)
-
