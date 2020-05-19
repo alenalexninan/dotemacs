@@ -50,8 +50,8 @@
 ;; When other Operating system-type
 (unless dotemacs-python/system-check
   (setq default-venv-name "flowassurance") ;; edit name of default virtual environment
-  (setq default-env-directory "/home/alen/anaconda3/envs") ;; edit location for the default folder with virtual environment
-  (setq anaconda-directory "/home/alen/anaconda3/") ;; edit the location for anaconda installation directory if selecetd.
+  (setq default-env-directory "/home/alenalexninan/anaconda3/envs") ;; edit location for the default folder with virtual environment
+  (setq anaconda-directory "/home/alenalexninan/anaconda3/") ;; edit the location for anaconda installation directory if selecetd.
   )
 
 
@@ -299,38 +299,38 @@
                 (setq-local completion-at-point-functions
                             '(pcomplete-completions-at-point python-completion-at-point))))
 
-    ;; ;; Eldoc function for ob-ipython completion
-    ;; (defun ob-ipython-eldoc-function ()
-    ;;   (when (org-babel-where-is-src-block-head)
-    ;;     (python-eldoc-function)))
+    ;; Eldoc function for ob-ipython completion
+    (defun ob-ipython-eldoc-function ()
+      (when (org-babel-where-is-src-block-head)
+        (python-eldoc-function)))
 
-    ;; (add-hook 'org-mode-hook
-    ;;           (lambda ()
-    ;;             (setq-default eldoc-documentation-function 'ob-ipython-eldoc-function)))
+    (add-hook 'org-mode-hook
+              (lambda ()
+                (setq-default eldoc-documentation-function 'ob-ipython-eldoc-function)))
 
-    ;; ;; Src block help ob-ipython
-    ;; (defun ob-ipython-help (symbol)
-    ;;   (interactive (list (read-string "Symbol: " (python-eldoc--get-symbol-at-point))))
-    ;;   (unless (org-babel-where-is-src-block-head)
-    ;;     (error "Symbol is not in src block."))
-    ;;   (unless (ob-ipython--get-kernel-processes)
-    ;;     (error "There is no ob-ipython-kernal running."))
-    ;;   (when-let* ((processes  (ob-ipython--get-kernel-processes))
-    ;;               (session (caar processes))
-    ;;               (ret (ob-ipython--eval
-    ;;                     (ob-ipython--execute-request (format "help(%s)" symbol) session))))
-    ;;     (let ((result (cdr (assoc :result ret)))
-    ;;           (output (cdr (assoc :output ret))))
-    ;;       (let ((buf (get-buffer-create "*ob-ipython-doc*")))
-    ;;         (with-current-buffer buf
-    ;;           (let ((inhibit-read-only t))
-    ;;             (erase-buffer)
-    ;;             (insert output)
-    ;;             (goto-char (point-min))
-    ;;             (read-only-mode t)
-    ;;             (pop-to-buffer buf)))))))
+    ;; Src block help ob-ipython
+    (defun ob-ipython-help (symbol)
+      (interactive (list (read-string "Symbol: " (python-eldoc--get-symbol-at-point))))
+      (unless (org-babel-where-is-src-block-head)
+        (error "Symbol is not in src block."))
+      (unless (ob-ipython--get-kernel-processes)
+        (error "There is no ob-ipython-kernal running."))
+      (when-let* ((processes  (ob-ipython--get-kernel-processes))
+                  (session (caar processes))
+                  (ret (ob-ipython--eval
+                        (ob-ipython--execute-request (format "help(%s)" symbol) session))))
+        (let ((result (cdr (assoc :result ret)))
+              (output (cdr (assoc :output ret))))
+          (let ((buf (get-buffer-create "*ob-ipython-doc*")))
+            (with-current-buffer buf
+              (let ((inhibit-read-only t))
+                (erase-buffer)
+                (insert output)
+                (goto-char (point-min))
+                (read-only-mode t)
+                (pop-to-buffer buf)))))))
     )
-  (scimax-ob-ipython-turn-on-eldoc)
+  ;; (scimax-ob-ipython-turn-on-eldoc)
   ;; Scimax end
 
   )
